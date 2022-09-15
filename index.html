@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #parent {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #child {
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="parent">
+        <div id="child">
+            <button type="button">click</button>
+        </div>
+    </div>
+
+    <br><br>
+    <div id="checkType">
+        <a href="#">
+            <h1>Click Me & Show My Event Type</h1>
+        </a>
+    </div>
+
+    <br><br>
+    <div id="whichClick" onmouseup="onMouseDown(event)">
+        <button type="button">
+            <h1>Click Me & Show My Click Button</h1>
+        </button>
+    </div>
+
+
+    <br>
+    <br>
+
+    <div>
+        <a href="https://www.w3schools.com/jsref/event_key_which.asp" id="preventDefault">
+            <h1>click me</h1>
+        </a>
+    </div>
+
+
+    <script>
+
+
+        /*== 1. event.stopPropagation() ==*/
+        let parent = document.getElementById('parent');
+        let child = document.getElementById('child');
+
+        parent.onclick = (event) => {
+            alert('parent') // check event type;
+        }
+        child.onclick = (event) => {
+            event.stopPropagation();
+            alert('child');
+        }
+
+
+        /* == 2. check event type == */
+        let checkType = document.getElementById('checkType');
+        checkType.onclick = (event) => {
+            alert(event.type());
+        }
+
+
+        /* == 3. event.which. Use for onmousedown() & onmouseup() event. Input use onkeyup() & onkeydown(). == */
+        function onMouseDown(event) {
+            alert(e.which);
+        }
+
+
+        /* == 4. event.preventDefault() use. == */
+        document.getElementById('preventDefault').addEventListener('click', function (event) {
+            event.preventDefault();
+        })
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
